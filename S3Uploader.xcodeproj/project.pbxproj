@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23F7A54316C87BE800E88026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54216C87BE800E88026 /* UIKit.framework */; };
+		23F7A54516C87BE800E88026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54416C87BE800E88026 /* Foundation.framework */; };
+		23F7A54716C87BE800E88026 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54616C87BE800E88026 /* CoreGraphics.framework */; };
+		23F7A54D16C87BE800E88026 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A54B16C87BE800E88026 /* InfoPlist.strings */; };
+		23F7A54F16C87BE800E88026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7A54E16C87BE800E88026 /* main.m */; };
+		23F7A55316C87BE800E88026 /* _LR4NFPD9GAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7A55216C87BE800E88026 /* _LR4NFPD9GAppDelegate.m */; };
+		23F7A55516C87BE800E88026 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A55416C87BE800E88026 /* Default.png */; };
+		23F7A55716C87BE800E88026 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A55616C87BE800E88026 /* Default@2x.png */; };
+		23F7A55916C87BE800E88026 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A55816C87BE800E88026 /* Default-568h@2x.png */; };
+		23F7A55C16C87BE800E88026 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A55A16C87BE800E88026 /* MainStoryboard.storyboard */; };
+		23F7A55F16C87BE800E88026 /* _LR4NFPD9GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7A55E16C87BE800E88026 /* _LR4NFPD9GViewController.m */; };
+		23F7A56716C87BE800E88026 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A56616C87BE800E88026 /* SenTestingKit.framework */; };
+		23F7A56816C87BE800E88026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54216C87BE800E88026 /* UIKit.framework */; };
+		23F7A56916C87BE800E88026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54416C87BE800E88026 /* Foundation.framework */; };
+		23F7A57116C87BE800E88026 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A56F16C87BE800E88026 /* InfoPlist.strings */; };
+		23F7A57416C87BE800E88026 /* S3UploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7A57316C87BE800E88026 /* S3UploaderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23F7A56A16C87BE800E88026 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23F7A53716C87BE800E88026 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23F7A53E16C87BE800E88026;
+			remoteInfo = S3Uploader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23F7A53F16C87BE800E88026 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23F7A54216C87BE800E88026 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		23F7A54416C87BE800E88026 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		23F7A54616C87BE800E88026 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		23F7A54A16C87BE800E88026 /* S3Uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "S3Uploader-Info.plist"; sourceTree = "<group>"; };
+		23F7A54C16C87BE800E88026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23F7A54E16C87BE800E88026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23F7A55016C87BE800E88026 /* S3Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "S3Uploader-Prefix.pch"; sourceTree = "<group>"; };
+		23F7A55116C87BE800E88026 /* _LR4NFPD9GAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _LR4NFPD9GAppDelegate.h; sourceTree = "<group>"; };
+		23F7A55216C87BE800E88026 /* _LR4NFPD9GAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _LR4NFPD9GAppDelegate.m; sourceTree = "<group>"; };
+		23F7A55416C87BE800E88026 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		23F7A55616C87BE800E88026 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		23F7A55816C87BE800E88026 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		23F7A55B16C87BE800E88026 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		23F7A55D16C87BE800E88026 /* _LR4NFPD9GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _LR4NFPD9GViewController.h; sourceTree = "<group>"; };
+		23F7A55E16C87BE800E88026 /* _LR4NFPD9GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _LR4NFPD9GViewController.m; sourceTree = "<group>"; };
+		23F7A56516C87BE800E88026 /* S3UploaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S3UploaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23F7A56616C87BE800E88026 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		23F7A56E16C87BE800E88026 /* S3UploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "S3UploaderTests-Info.plist"; sourceTree = "<group>"; };
+		23F7A57016C87BE800E88026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23F7A57216C87BE800E88026 /* S3UploaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3UploaderTests.h; sourceTree = "<group>"; };
+		23F7A57316C87BE800E88026 /* S3UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3UploaderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23F7A53C16C87BE800E88026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A54316C87BE800E88026 /* UIKit.framework in Frameworks */,
+				23F7A54516C87BE800E88026 /* Foundation.framework in Frameworks */,
+				23F7A54716C87BE800E88026 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23F7A56116C87BE800E88026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A56716C87BE800E88026 /* SenTestingKit.framework in Frameworks */,
+				23F7A56816C87BE800E88026 /* UIKit.framework in Frameworks */,
+				23F7A56916C87BE800E88026 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23F7A53616C87BE800E88026 = {
+			isa = PBXGroup;
+			children = (
+				23F7A54816C87BE800E88026 /* S3Uploader */,
+				23F7A56C16C87BE800E88026 /* S3UploaderTests */,
+				23F7A54116C87BE800E88026 /* Frameworks */,
+				23F7A54016C87BE800E88026 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23F7A54016C87BE800E88026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A53F16C87BE800E88026 /* S3Uploader.app */,
+				23F7A56516C87BE800E88026 /* S3UploaderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23F7A54116C87BE800E88026 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A54216C87BE800E88026 /* UIKit.framework */,
+				23F7A54416C87BE800E88026 /* Foundation.framework */,
+				23F7A54616C87BE800E88026 /* CoreGraphics.framework */,
+				23F7A56616C87BE800E88026 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23F7A54816C87BE800E88026 /* S3Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A55116C87BE800E88026 /* _LR4NFPD9GAppDelegate.h */,
+				23F7A55216C87BE800E88026 /* _LR4NFPD9GAppDelegate.m */,
+				23F7A55A16C87BE800E88026 /* MainStoryboard.storyboard */,
+				23F7A55D16C87BE800E88026 /* _LR4NFPD9GViewController.h */,
+				23F7A55E16C87BE800E88026 /* _LR4NFPD9GViewController.m */,
+				23F7A54916C87BE800E88026 /* Supporting Files */,
+			);
+			path = S3Uploader;
+			sourceTree = "<group>";
+		};
+		23F7A54916C87BE800E88026 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A54A16C87BE800E88026 /* S3Uploader-Info.plist */,
+				23F7A54B16C87BE800E88026 /* InfoPlist.strings */,
+				23F7A54E16C87BE800E88026 /* main.m */,
+				23F7A55016C87BE800E88026 /* S3Uploader-Prefix.pch */,
+				23F7A55416C87BE800E88026 /* Default.png */,
+				23F7A55616C87BE800E88026 /* Default@2x.png */,
+				23F7A55816C87BE800E88026 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23F7A56C16C87BE800E88026 /* S3UploaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A57216C87BE800E88026 /* S3UploaderTests.h */,
+				23F7A57316C87BE800E88026 /* S3UploaderTests.m */,
+				23F7A56D16C87BE800E88026 /* Supporting Files */,
+			);
+			path = S3UploaderTests;
+			sourceTree = "<group>";
+		};
+		23F7A56D16C87BE800E88026 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23F7A56E16C87BE800E88026 /* S3UploaderTests-Info.plist */,
+				23F7A56F16C87BE800E88026 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23F7A53E16C87BE800E88026 /* S3Uploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23F7A57716C87BE800E88026 /* Build configuration list for PBXNativeTarget "S3Uploader" */;
+			buildPhases = (
+				23F7A53B16C87BE800E88026 /* Sources */,
+				23F7A53C16C87BE800E88026 /* Frameworks */,
+				23F7A53D16C87BE800E88026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = S3Uploader;
+			productName = S3Uploader;
+			productReference = 23F7A53F16C87BE800E88026 /* S3Uploader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23F7A56416C87BE800E88026 /* S3UploaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23F7A57A16C87BE800E88026 /* Build configuration list for PBXNativeTarget "S3UploaderTests" */;
+			buildPhases = (
+				23F7A56016C87BE800E88026 /* Sources */,
+				23F7A56116C87BE800E88026 /* Frameworks */,
+				23F7A56216C87BE800E88026 /* Resources */,
+				23F7A56316C87BE800E88026 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23F7A56B16C87BE800E88026 /* PBXTargetDependency */,
+			);
+			name = S3UploaderTests;
+			productName = S3UploaderTests;
+			productReference = 23F7A56516C87BE800E88026 /* S3UploaderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23F7A53716C87BE800E88026 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = 2LR4NFPD9G;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = dukecs;
+			};
+			buildConfigurationList = 23F7A53A16C87BE800E88026 /* Build configuration list for PBXProject "S3Uploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 23F7A53616C87BE800E88026;
+			productRefGroup = 23F7A54016C87BE800E88026 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23F7A53E16C87BE800E88026 /* S3Uploader */,
+				23F7A56416C87BE800E88026 /* S3UploaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23F7A53D16C87BE800E88026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A54D16C87BE800E88026 /* InfoPlist.strings in Resources */,
+				23F7A55516C87BE800E88026 /* Default.png in Resources */,
+				23F7A55716C87BE800E88026 /* Default@2x.png in Resources */,
+				23F7A55916C87BE800E88026 /* Default-568h@2x.png in Resources */,
+				23F7A55C16C87BE800E88026 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23F7A56216C87BE800E88026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A57116C87BE800E88026 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23F7A56316C87BE800E88026 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23F7A53B16C87BE800E88026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A54F16C87BE800E88026 /* main.m in Sources */,
+				23F7A55316C87BE800E88026 /* _LR4NFPD9GAppDelegate.m in Sources */,
+				23F7A55F16C87BE800E88026 /* _LR4NFPD9GViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23F7A56016C87BE800E88026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F7A57416C87BE800E88026 /* S3UploaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23F7A56B16C87BE800E88026 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23F7A53E16C87BE800E88026 /* S3Uploader */;
+			targetProxy = 23F7A56A16C87BE800E88026 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23F7A54B16C87BE800E88026 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23F7A54C16C87BE800E88026 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		23F7A55A16C87BE800E88026 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23F7A55B16C87BE800E88026 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		23F7A56F16C87BE800E88026 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23F7A57016C87BE800E88026 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23F7A57516C87BE800E88026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		23F7A57616C87BE800E88026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23F7A57816C87BE800E88026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		23F7A57916C87BE800E88026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		23F7A57B16C87BE800E88026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/S3Uploader.app/S3Uploader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				INFOPLIST_FILE = "S3UploaderTests/S3UploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		23F7A57C16C87BE800E88026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/S3Uploader.app/S3Uploader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				INFOPLIST_FILE = "S3UploaderTests/S3UploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23F7A53A16C87BE800E88026 /* Build configuration list for PBXProject "S3Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23F7A57516C87BE800E88026 /* Debug */,
+				23F7A57616C87BE800E88026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23F7A57716C87BE800E88026 /* Build configuration list for PBXNativeTarget "S3Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23F7A57816C87BE800E88026 /* Debug */,
+				23F7A57916C87BE800E88026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23F7A57A16C87BE800E88026 /* Build configuration list for PBXNativeTarget "S3UploaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23F7A57B16C87BE800E88026 /* Debug */,
+				23F7A57C16C87BE800E88026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23F7A53716C87BE800E88026 /* Project object */;
+}
