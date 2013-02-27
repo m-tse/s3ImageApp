@@ -18,6 +18,7 @@ NSString *MY_ACCESS_KEY_ID = @"AKIAJXYLMJM5JBOWN7NA";
 NSString *MY_SECRET_KEY = @"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";
 AmazonS3Client *s3;
 NSMutableArray *listOfItems;
+NSData *imageData;
 
 - (void)viewDidLoad
 {
@@ -67,19 +68,22 @@ NSMutableArray *listOfItems;
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     //show an alert window to input the image name
-    
+    UIImage *myImage = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
+    imageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 1.0)];
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Name Your Image" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
-//    [alert release];
+
+
     
-    
-    
-    UIImage *myImage = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
-    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 1.0)];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
     s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     
-//If the bucket does not exist, then create it.
+    //If the bucket does not exist, then create it.
     NSArray *listOfBuckets = s3.listBuckets;
     S3Bucket *myBucket;
     for(S3Bucket *bucket in listOfBuckets){
@@ -87,15 +91,12 @@ NSMutableArray *listOfItems;
             myBucket=bucket;
         }
     }
-// create the bucket if it does not yet exist
+    // create the bucket if it does not yet exist
     if(myBucket==nil){
         [s3 createBucket:[[S3CreateBucketRequest alloc] initWithName:@"s3uploaderbucket"]];
     }
     
-    
-    //use the currentDate as the object keyname
-    NSDate* currentDate = [NSDate date];
-    NSString* keyName = [currentDate description];
+        NSString* keyName = [[alertView textFieldAtIndex:0] text];
     S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:@"s3uploaderbucket"];
     por.contentType = @"image/jpeg";
     por.data = imageData;
@@ -111,15 +112,6 @@ NSMutableArray *listOfItems;
     }
     NSLog(@"just reloaded data");
     [self.tableViewThing reloadData];
-    
-    
-    
-    
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
