@@ -10,6 +10,8 @@
 
 @interface _LR4NFPD9GViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 - (IBAction)pickAnImage:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewThing;
+
 
 
 @end

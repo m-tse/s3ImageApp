@@ -64,7 +64,16 @@ NSMutableArray *listOfItems;
 
 }
 
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    //show an alert window to input the image name
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Name Your Image" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+//    [alert release];
+    
+    
     
     UIImage *myImage = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
     NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 1.0)];
@@ -92,7 +101,25 @@ NSMutableArray *listOfItems;
     por.data = imageData;
     [s3 putObject:por];
     NSLog(@"just uploaded an image");
+    
+    
+    
+    listOfItems = [[NSMutableArray alloc] init];
+    NSArray * objectList = [s3 listObjectsInBucket:myBucket.name];
+    for(S3ObjectSummary* object in objectList){
+        [listOfItems addObject:object.description];
+    }
+    NSLog(@"just reloaded data");
+    [self.tableViewThing reloadData];
+    
+    
+    
+    
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

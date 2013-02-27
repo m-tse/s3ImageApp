@@ -28,23 +28,26 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-Vu-adq">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="g0r-1X-4uw"/>
+                                    <constraint firstAttribute="height" constant="464" id="4yP-hc-OFR"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="2" id="Iro-nN-ucZ"/>
+                                    <outlet property="dataSource" destination="2" id="6GO-w1-pIj"/>
                                     <outlet property="delegate" destination="2" id="392-g2-lQE"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cYh-Vu-adq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Gi9-YL-pnE"/>
-                            <constraint firstItem="feO-Ja-tib" firstAttribute="top" secondItem="3" secondAttribute="top" constant="45" id="IvO-m1-8a4"/>
-                            <constraint firstItem="cYh-Vu-adq" firstAttribute="top" secondItem="feO-Ja-tib" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Luy-p8-GyS"/>
-                            <constraint firstItem="feO-Ja-tib" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="82" id="Qgf-DI-4zf"/>
+                            <constraint firstItem="cYh-Vu-adq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Cap-Xp-b08"/>
+                            <constraint firstItem="cYh-Vu-adq" firstAttribute="top" secondItem="feO-Ja-tib" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DFB-4m-7cY"/>
+                            <constraint firstItem="feO-Ja-tib" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="dXn-8h-ADU"/>
                             <constraint firstAttribute="trailing" secondItem="cYh-Vu-adq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ffK-X0-6qw"/>
+                            <constraint firstItem="feO-Ja-tib" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="s7n-0p-7Rg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewThing" destination="cYh-Vu-adq" id="McI-lH-bUj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +62,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/_LR4NFPD9GViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pickAnImage:"/>
+                <relationship kind="action" name="refreshImageList:"/>
+                <relationship kind="outlet" name="tableViewThing" candidateClass="UITableView"/>
             </relationships>
         </class>
     </classes>
