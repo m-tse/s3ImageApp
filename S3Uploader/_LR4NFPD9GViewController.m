@@ -14,15 +14,16 @@
 @end
 
 @implementation _LR4NFPD9GViewController
-
+NSString *MY_ACCESS_KEY_ID = @"AKIAJXYLMJM5JBOWN7NA";
+NSString *MY_SECRET_KEY = @"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";
+AmazonS3Client *s3;
 NSMutableArray *listOfItems;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString *MY_ACCESS_KEY_ID = @"AKIAJXYLMJM5JBOWN7NA";
-    NSString *MY_SECRET_KEY = @"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";
+
     
     AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     NSArray *listOfBuckets = s3.listBuckets;
@@ -67,11 +68,7 @@ NSMutableArray *listOfItems;
     
     UIImage *myImage = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
     NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 1.0)];
-
-    NSString *MY_ACCESS_KEY_ID = @"AKIAJXYLMJM5JBOWN7NA";
-    NSString *MY_SECRET_KEY = @"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";
-    
-    AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
+    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     
 //If the bucket does not exist, then create it.
     NSArray *listOfBuckets = s3.listBuckets;
@@ -94,6 +91,7 @@ NSMutableArray *listOfItems;
     por.contentType = @"image/jpeg";
     por.data = imageData;
     [s3 putObject:por];
+    NSLog(@"just uploaded an image");
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -116,16 +114,22 @@ NSMutableArray *listOfItems;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
     override.contentType = @"image/jpeg";
     
     S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
     gpsur.key     = [listOfItems objectAtIndex:indexPath.row];
+    NSLog(@"gpsurkey: %@", [listOfItems objectAtIndex:indexPath.row]);
     gpsur.bucket  = @"s3uploaderbucket";
     gpsur.expires = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600];  // Added an hour's worth of seconds to the current time.
     gpsur.responseHeaderOverrides = override;
-    // indexPath.row tells you index of row tapped
-    // here do whatever your logic
-//    NSURL *url = [s3 getPreSignedURL:gpsur];
+    NSURL *url = [s3 getPreSignedURL:gpsur];
+    NSLog(@"urlpath = %@", url.path);
+
+    [[UIApplication sharedApplication] openURL:url];
+    
+    
+    
 }
 @end
