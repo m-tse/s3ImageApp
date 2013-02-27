@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230558FE16DC545C0088541E /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 230558FD16DC545C0088541E /* AmazonClientManager.m */; };
 		23F7A54316C87BE800E88026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54216C87BE800E88026 /* UIKit.framework */; };
 		23F7A54516C87BE800E88026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54416C87BE800E88026 /* Foundation.framework */; };
 		23F7A54716C87BE800E88026 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54616C87BE800E88026 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 		23F7A56916C87BE800E88026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54416C87BE800E88026 /* Foundation.framework */; };
 		23F7A57116C87BE800E88026 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23F7A56F16C87BE800E88026 /* InfoPlist.strings */; };
 		23F7A57416C87BE800E88026 /* S3UploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7A57316C87BE800E88026 /* S3UploaderTests.m */; };
+		23F7A57E16C87D1A00E88026 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A57D16C87D1A00E88026 /* AWSiOSSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		230558FC16DC53C70088541E /* AmazonClientManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		230558FD16DC545C0088541E /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		23F7A53F16C87BE800E88026 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F7A54216C87BE800E88026 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23F7A54416C87BE800E88026 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +62,7 @@
 		23F7A57016C87BE800E88026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23F7A57216C87BE800E88026 /* S3UploaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3UploaderTests.h; sourceTree = "<group>"; };
 		23F7A57316C87BE800E88026 /* S3UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3UploaderTests.m; sourceTree = "<group>"; };
+		23F7A57D16C87D1A00E88026 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.4.4/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 				23F7A54316C87BE800E88026 /* UIKit.framework in Frameworks */,
 				23F7A54516C87BE800E88026 /* Foundation.framework in Frameworks */,
 				23F7A54716C87BE800E88026 /* CoreGraphics.framework in Frameworks */,
+				23F7A57E16C87D1A00E88026 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,7 @@
 		23F7A54116C87BE800E88026 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23F7A57D16C87D1A00E88026 /* AWSiOSSDK.framework */,
 				23F7A54216C87BE800E88026 /* UIKit.framework */,
 				23F7A54416C87BE800E88026 /* Foundation.framework */,
 				23F7A54616C87BE800E88026 /* CoreGraphics.framework */,
@@ -117,6 +124,8 @@
 		23F7A54816C87BE800E88026 /* S3Uploader */ = {
 			isa = PBXGroup;
 			children = (
+				230558FC16DC53C70088541E /* AmazonClientManager.h */,
+				230558FD16DC545C0088541E /* AmazonClientManager.m */,
 				23F7A55116C87BE800E88026 /* _LR4NFPD9GAppDelegate.h */,
 				23F7A55216C87BE800E88026 /* _LR4NFPD9GAppDelegate.m */,
 				23F7A55A16C87BE800E88026 /* MainStoryboard.storyboard */,
@@ -274,6 +283,7 @@
 				23F7A54F16C87BE800E88026 /* main.m in Sources */,
 				23F7A55316C87BE800E88026 /* _LR4NFPD9GAppDelegate.m in Sources */,
 				23F7A55F16C87BE800E88026 /* _LR4NFPD9GViewController.m in Sources */,
+				230558FE16DC545C0088541E /* AmazonClientManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +392,10 @@
 		23F7A57816C87BE800E88026 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.4.4\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
@@ -393,6 +407,10 @@
 		23F7A57916C87BE800E88026 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.4.4\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
@@ -454,6 +472,7 @@
 				23F7A57916C87BE800E88026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23F7A57A16C87BE800E88026 /* Build configuration list for PBXNativeTarget "S3UploaderTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +481,7 @@
 				23F7A57C16C87BE800E88026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

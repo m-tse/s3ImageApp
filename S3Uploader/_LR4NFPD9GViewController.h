@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface _LR4NFPD9GViewController : UIViewController
+@interface _LR4NFPD9GViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+- (IBAction)pickAnImage:(id)sender;
+
 
 @end
