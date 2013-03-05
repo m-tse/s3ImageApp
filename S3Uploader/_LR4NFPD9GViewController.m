@@ -147,6 +147,7 @@ S3Bucket *compressedBucket;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -155,12 +156,23 @@ S3Bucket *compressedBucket;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [listOfItems objectAtIndex:indexPath.row];
+    NSString* imageName = [listOfItems objectAtIndex:indexPath.row];
+    NSString* compressedImageName = [imageName stringByAppendingString:@"_compressed"];
+    NSArray * objectList = [s3 listObjectsInBucket:myBucket.name];
+    
+    
+    S3GetObjectRequest* gor = [[S3GetObjectRequest alloc] initWithKey:compressedImageName withBucket:@"delpicturescompressed"];
+    S3GetObjectResponse* gore = [s3 getObject:gor];
+    gore.contentType=@"image/jpeg";
+    
+    UIImage *compressedThumbnail = [[UIImage alloc] initWithData:gore.body];
+    cell.imageView.image=compressedThumbnail;
+    cell.textLabel.text = imageName;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
+    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
     override.contentType = @"image/jpeg";
     
