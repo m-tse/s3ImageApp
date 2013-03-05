@@ -19,6 +19,9 @@ NSString *MY_SECRET_KEY = @"rdWPbboulqUv0KcNuUkhoDBxu3NcTPsikZMmbKwF";
 AmazonS3Client *s3;
 NSMutableArray *listOfItems;
 NSData *imageData;
+NSData *compressedImageData;
+S3Bucket *myBucket;
+S3Bucket *compressedBucket;
 
 - (void)viewDidLoad
 {
@@ -28,12 +31,33 @@ NSData *imageData;
     
     AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     NSArray *listOfBuckets = s3.listBuckets;
-    S3Bucket *myBucket;
+    
+    
+    //If the bucket does not exist, then create it.
+
     for(S3Bucket *bucket in listOfBuckets){
-        if([[bucket name]isEqual:@"s3uploaderbucket"]){
+        if([[bucket name]isEqual:@"delpictures"]){
             myBucket=bucket;
         }
     }
+    // create the bucket if it does not yet exist
+    if(myBucket==nil){
+        [s3 createBucket:[[S3CreateBucketRequest alloc] initWithName:@"delpictures"]];
+    }
+    
+    
+    //check for and if needed create the compressedBucket
+    
+    for(S3Bucket *bucket in listOfBuckets){
+        if([[bucket name]isEqual:@"delpicturescompressed"]){
+            compressedBucket=bucket;
+        }
+    }
+    // create the bucket if it does not yet exist
+    if(compressedBucket==nil){
+        [s3 createBucket:[[S3CreateBucketRequest alloc] initWithName:@"delpicturescompressed"]];
+    }
+    
     
     listOfItems = [[NSMutableArray alloc] init];
     NSArray * objectList = [s3 listObjectsInBucket:myBucket.name];
@@ -70,6 +94,9 @@ NSData *imageData;
     //show an alert window to input the image name
     UIImage *myImage = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
     imageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 1.0)];
+    compressedImageData = [NSData dataWithData:UIImageJPEGRepresentation(myImage, 0.05)];
+
+
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Name Your Image" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
@@ -80,37 +107,35 @@ NSData *imageData;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+//    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
     s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     
-    //If the bucket does not exist, then create it.
-    NSArray *listOfBuckets = s3.listBuckets;
-    S3Bucket *myBucket;
-    for(S3Bucket *bucket in listOfBuckets){
-        if([[bucket name]isEqual:@"s3uploaderbucket"]){
-            myBucket=bucket;
-        }
-    }
-    // create the bucket if it does not yet exist
-    if(myBucket==nil){
-        [s3 createBucket:[[S3CreateBucketRequest alloc] initWithName:@"s3uploaderbucket"]];
-    }
+
     
+    
+    
+    //upload the original image
         NSString* keyName = [[alertView textFieldAtIndex:0] text];
-    S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:@"s3uploaderbucket"];
+    S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:@"delpictures"];
     por.contentType = @"image/jpeg";
     por.data = imageData;
     [s3 putObject:por];
-    NSLog(@"just uploaded an image");
+
+    //upload the compressed image
+    NSString* compressedKeyName = [keyName stringByAppendingString:@"_compressed"];
+    S3PutObjectRequest *porCompressed = [[S3PutObjectRequest alloc] initWithKey:compressedKeyName inBucket:@"delpicturescompressed"];
+    porCompressed.contentType = @"image/jpeg";
+    porCompressed.data = compressedImageData;
+    [s3 putObject:porCompressed];
     
     
     
+    //reload data
     listOfItems = [[NSMutableArray alloc] init];
     NSArray * objectList = [s3 listObjectsInBucket:myBucket.name];
     for(S3ObjectSummary* object in objectList){
         [listOfItems addObject:object.description];
     }
-    NSLog(@"just reloaded data");
     [self.tableViewThing reloadData];
 }
 
@@ -118,6 +143,8 @@ NSData *imageData;
 {
     return [listOfItems count];
 }
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
@@ -140,7 +167,7 @@ NSData *imageData;
     S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
     gpsur.key     = [listOfItems objectAtIndex:indexPath.row];
     NSLog(@"gpsurkey: %@", [listOfItems objectAtIndex:indexPath.row]);
-    gpsur.bucket  = @"s3uploaderbucket";
+    gpsur.bucket  = @"delpictures";
     gpsur.expires = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600];  // Added an hour's worth of seconds to the current time.
     gpsur.responseHeaderOverrides = override;
     NSURL *url = [s3 getPreSignedURL:gpsur];
