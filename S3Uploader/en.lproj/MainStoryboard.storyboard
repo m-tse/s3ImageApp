@@ -69,7 +69,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="LrO-Re-msn" id="33O-jX-zgh"/>
-                                            <segue destination="pfr-op-7Zf" kind="modal" identifier="ShowPhoto" id="CYH-WV-3Rw"/>
+                                            <segue destination="pfr-op-7Zf" kind="modal" identifier="ShowPhoto" id="JKX-uk-K2j"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -109,11 +109,23 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ew0-Vu-XJj">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="1VK-ve-Dze"/>
-                                    <constraint firstAttribute="height" constant="253" id="B3I-q5-Fkn"/>
+                                    <constraint firstAttribute="height" constant="377" id="Y0i-Az-hVZ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAH-gg-bAR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW6-2f-6PH">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save to Phone">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveImageToPhone:" destination="pfr-op-7Zf" eventType="touchUpInside" id="U6j-OT-Rhd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zc-ur-H87">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,18 +134,32 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneButton:" destination="pfr-op-7Zf" eventType="touchUpInside" id="qnT-DH-Aqb"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBS-Qo-q0a">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zAH-gg-bAR" firstAttribute="top" secondItem="dIC-Vh-xIi" secondAttribute="top" constant="70" id="8pJ-TR-eqS"/>
-                            <constraint firstItem="zAH-gg-bAR" firstAttribute="leading" secondItem="dIC-Vh-xIi" secondAttribute="leading" constant="135" id="RmO-ZM-baM"/>
-                            <constraint firstItem="Ew0-Vu-XJj" firstAttribute="top" secondItem="dIC-Vh-xIi" secondAttribute="top" constant="127" id="WBU-lx-tSx"/>
-                            <constraint firstItem="Ew0-Vu-XJj" firstAttribute="leading" secondItem="dIC-Vh-xIi" secondAttribute="leading" constant="33" id="iVk-Dl-37k"/>
+                            <constraint firstItem="Ew0-Vu-XJj" firstAttribute="top" secondItem="dIC-Vh-xIi" secondAttribute="top" constant="128" id="1tO-77-x3V"/>
+                            <constraint firstAttribute="trailing" secondItem="5zc-ur-H87" secondAttribute="trailing" constant="51" id="74H-aK-Wwf"/>
+                            <constraint firstItem="Ew0-Vu-XJj" firstAttribute="leading" secondItem="dIC-Vh-xIi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="KT0-VT-G2C"/>
+                            <constraint firstItem="EBS-Qo-q0a" firstAttribute="centerX" secondItem="Ew0-Vu-XJj" secondAttribute="centerX" type="default" id="Ljf-fm-HvH"/>
+                            <constraint firstAttribute="trailing" secondItem="Ew0-Vu-XJj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="M23-5A-7AH"/>
+                            <constraint firstItem="EBS-Qo-q0a" firstAttribute="top" secondItem="JW6-2f-6PH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VA7-jr-23B"/>
+                            <constraint firstItem="5zc-ur-H87" firstAttribute="baseline" secondItem="JW6-2f-6PH" secondAttribute="baseline" type="default" id="cf8-W8-J5f"/>
+                            <constraint firstItem="JW6-2f-6PH" firstAttribute="leading" secondItem="dIC-Vh-xIi" secondAttribute="leading" constant="25" id="iho-pS-NPr"/>
+                            <constraint firstItem="JW6-2f-6PH" firstAttribute="top" secondItem="dIC-Vh-xIi" secondAttribute="top" constant="25" id="u8b-XA-EUQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qsg-za-DlM"/>
+                    <navigationItem key="navigationItem" id="lgu-dn-jLa"/>
                     <connections>
+                        <outlet property="imageLabel" destination="EBS-Qo-q0a" id="bIM-Wf-0Bx"/>
                         <outlet property="imageView" destination="Ew0-Vu-XJj" id="pNL-TL-JRX"/>
                     </connections>
                 </viewController>

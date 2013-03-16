@@ -194,25 +194,7 @@ S3Bucket *compressedBucket;
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
-//    S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
-//    override.contentType = @"image/jpeg";
-//    
-//    S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
-//    gpsur.key     = [listOfItems objectAtIndex:indexPath.row];
-//    NSLog(@"gpsurkey: %@", [listOfItems objectAtIndex:indexPath.row]);
-//    gpsur.bucket  = @"delpictures";
-//    gpsur.expires = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600];  // Added an hour's worth of seconds to the current time.
-//    gpsur.responseHeaderOverrides = override;
-//    NSURL *url = [s3 getPreSignedURL:gpsur];
-//    NSLog(@"urlpath = %@", url.path);
-//    
-//    [[UIApplication sharedApplication] openURL:url];
-    //
-    //
-    
-//    NSString *searchTerm = self.searches[indexPath.section];
-//    FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+
     s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     
     
@@ -227,7 +209,7 @@ S3Bucket *compressedBucket;
     
     
     [self performSegueWithIdentifier:@"ShowPhoto"
-                              sender:compressedThumbnail];
+                              sender:imageName];
     [self.collectionView
      deselectItemAtIndexPath:indexPath animated:YES];
     
@@ -235,7 +217,7 @@ S3Bucket *compressedBucket;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowPhoto"]) {
         photoDetailViewController *flickrPhotoViewController = segue.destinationViewController;
-        flickrPhotoViewController.passedImage = sender;
+        flickrPhotoViewController.imageName = sender;
     }
 }
 

@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface photoDetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
-@property (weak, nonatomic) UIImage *passedImage;
+@property (strong, nonatomic) IBOutlet UILabel *imageLabel;
+- (IBAction)saveImageToPhone:(id)sender;
+- (IBAction)doneButton:(id)sender;
+
+@property (weak, nonatomic) NSString *imageName;
 
 @end
