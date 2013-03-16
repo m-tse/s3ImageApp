@@ -9,7 +9,7 @@
 #import "_LR4NFPD9GViewController.h"
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
 #import "s3ImageCell.h"
-
+#import "photoDetailViewController.h"
 
 @interface _LR4NFPD9GViewController ()
 
@@ -192,6 +192,53 @@ S3Bucket *compressedBucket;
     
 }
 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
+//    S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
+//    override.contentType = @"image/jpeg";
+//    
+//    S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
+//    gpsur.key     = [listOfItems objectAtIndex:indexPath.row];
+//    NSLog(@"gpsurkey: %@", [listOfItems objectAtIndex:indexPath.row]);
+//    gpsur.bucket  = @"delpictures";
+//    gpsur.expires = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600];  // Added an hour's worth of seconds to the current time.
+//    gpsur.responseHeaderOverrides = override;
+//    NSURL *url = [s3 getPreSignedURL:gpsur];
+//    NSLog(@"urlpath = %@", url.path);
+//    
+//    [[UIApplication sharedApplication] openURL:url];
+    //
+    //
+    
+//    NSString *searchTerm = self.searches[indexPath.section];
+//    FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
+    
+    
+    NSString* imageName = [listOfItems objectAtIndex:indexPath.row];
+    
+    
+    S3GetObjectRequest* gor = [[S3GetObjectRequest alloc] initWithKey:imageName withBucket:@"delpictures"];
+    S3GetObjectResponse* gore = [s3 getObject:gor];
+    gore.contentType=@"image/jpeg";
+    
+    UIImage *compressedThumbnail = [[UIImage alloc] initWithData:gore.body];
+    
+    
+    [self performSegueWithIdentifier:@"ShowPhoto"
+                              sender:compressedThumbnail];
+    [self.collectionView
+     deselectItemAtIndexPath:indexPath animated:YES];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowPhoto"]) {
+        photoDetailViewController *flickrPhotoViewController = segue.destinationViewController;
+        flickrPhotoViewController.passedImage = sender;
+    }
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
     // _data is a class member variable that contains one array per section.
     return 1;
@@ -221,10 +268,11 @@ S3Bucket *compressedBucket;
     s3ImageCell* newCell = [collectionView dequeueReusableCellWithReuseIdentifier:MyCellID
                                                                            forIndexPath:indexPath];
 
-//    newCell.backgroundColor = [UIColor whiteColor];
-    newCell.imageView.image = nil;
+//    newCell.imageView.image = nil;
     newCell.imageView.image = compressedThumbnail;
     return newCell;
 }
+
+
 
 @end
