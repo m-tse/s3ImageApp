@@ -187,8 +187,8 @@ S3Bucket *compressedBucket;
     NSLog(@"urlpath = %@", url.path);
 
     [[UIApplication sharedApplication] openURL:url];
-    
-    
+//
+//    
     
 }
 
@@ -204,6 +204,7 @@ S3Bucket *compressedBucket;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
 
 
     static NSString* MyCellID = @"simpleCellID";
