@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		230558FE16DC545C0088541E /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 230558FD16DC545C0088541E /* AmazonClientManager.m */; };
+		23AAA56116E852FB00309E50 /* s3ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AAA56016E852FB00309E50 /* s3ImageCell.m */; };
 		23F7A54316C87BE800E88026 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54216C87BE800E88026 /* UIKit.framework */; };
 		23F7A54516C87BE800E88026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54416C87BE800E88026 /* Foundation.framework */; };
 		23F7A54716C87BE800E88026 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7A54616C87BE800E88026 /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		230558FC16DC53C70088541E /* AmazonClientManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		230558FD16DC545C0088541E /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		23AAA55F16E852FB00309E50 /* s3ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = s3ImageCell.h; sourceTree = "<group>"; };
+		23AAA56016E852FB00309E50 /* s3ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = s3ImageCell.m; sourceTree = "<group>"; };
 		23F7A53F16C87BE800E88026 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F7A54216C87BE800E88026 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23F7A54416C87BE800E88026 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,8 @@
 				23F7A55A16C87BE800E88026 /* MainStoryboard.storyboard */,
 				23F7A55D16C87BE800E88026 /* _LR4NFPD9GViewController.h */,
 				23F7A55E16C87BE800E88026 /* _LR4NFPD9GViewController.m */,
+				23AAA55F16E852FB00309E50 /* s3ImageCell.h */,
+				23AAA56016E852FB00309E50 /* s3ImageCell.m */,
 				23F7A54916C87BE800E88026 /* Supporting Files */,
 			);
 			path = S3Uploader;
@@ -284,6 +289,7 @@
 				23F7A55316C87BE800E88026 /* _LR4NFPD9GAppDelegate.m in Sources */,
 				23F7A55F16C87BE800E88026 /* _LR4NFPD9GViewController.m in Sources */,
 				230558FE16DC545C0088541E /* AmazonClientManager.m in Sources */,
+				23AAA56116E852FB00309E50 /* s3ImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +404,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -413,6 +420,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

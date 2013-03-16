@@ -8,6 +8,8 @@
 
 #import "_LR4NFPD9GViewController.h"
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
+#import "s3ImageCell.h"
+
 
 @interface _LR4NFPD9GViewController ()
 
@@ -27,8 +29,8 @@ S3Bucket *compressedBucket;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
-    
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f]; //set background color to grey
+    [self.collectionView registerClass:[s3ImageCell class] forCellWithReuseIdentifier:@"simpleCellID"];
     AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
     NSArray *listOfBuckets = s3.listBuckets;
     
@@ -158,7 +160,6 @@ S3Bucket *compressedBucket;
     
     NSString* imageName = [listOfItems objectAtIndex:indexPath.row];
     NSString* compressedImageName = [imageName stringByAppendingString:@"_compressed"];
-    NSArray * objectList = [s3 listObjectsInBucket:myBucket.name];
     
     
     S3GetObjectRequest* gor = [[S3GetObjectRequest alloc] initWithKey:compressedImageName withBucket:@"delpicturescompressed"];
@@ -190,4 +191,39 @@ S3Bucket *compressedBucket;
     
     
 }
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
+    // _data is a class member variable that contains one array per section.
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return [listOfItems count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    static NSString* MyCellID = @"simpleCellID";
+    NSString* imageName = [listOfItems objectAtIndex:indexPath.row];
+    NSString* compressedImageName = [imageName stringByAppendingString:@"_compressed"];
+    
+    
+    S3GetObjectRequest* gor = [[S3GetObjectRequest alloc] initWithKey:compressedImageName withBucket:@"delpicturescompressed"];
+    S3GetObjectResponse* gore = [s3 getObject:gor];
+    gore.contentType=@"image/jpeg";
+    
+    UIImage *compressedThumbnail = [[UIImage alloc] initWithData:gore.body];
+    
+    s3ImageCell* newCell = [collectionView dequeueReusableCellWithReuseIdentifier:MyCellID
+                                                                           forIndexPath:indexPath];
+
+//    newCell.backgroundColor = [UIColor whiteColor];
+    newCell.imageView.image = nil;
+    newCell.imageView.image = compressedThumbnail;
+    return newCell;
+}
+
 @end
