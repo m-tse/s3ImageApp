@@ -138,59 +138,10 @@ S3Bucket *compressedBucket;
     for(S3ObjectSummary* object in objectList){
         [listOfItems addObject:object.description];
     }
-    [self.tableViewThing reloadData];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [listOfItems count];
+    [self.collectionView reloadData];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    NSString* imageName = [listOfItems objectAtIndex:indexPath.row];
-    NSString* compressedImageName = [imageName stringByAppendingString:@"_compressed"];
-    
-    
-    S3GetObjectRequest* gor = [[S3GetObjectRequest alloc] initWithKey:compressedImageName withBucket:@"delpicturescompressed"];
-    S3GetObjectResponse* gore = [s3 getObject:gor];
-    gore.contentType=@"image/jpeg";
-    
-    UIImage *compressedThumbnail = [[UIImage alloc] initWithData:gore.body];
-    cell.imageView.image=compressedThumbnail;
-    cell.textLabel.text = imageName;
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    s3 = [[AmazonS3Client alloc] initWithAccessKey:MY_ACCESS_KEY_ID withSecretKey:MY_SECRET_KEY];
-    S3ResponseHeaderOverrides *override = [[S3ResponseHeaderOverrides alloc] init];
-    override.contentType = @"image/jpeg";
-    
-    S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
-    gpsur.key     = [listOfItems objectAtIndex:indexPath.row];
-    NSLog(@"gpsurkey: %@", [listOfItems objectAtIndex:indexPath.row]);
-    gpsur.bucket  = @"delpictures";
-    gpsur.expires = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600];  // Added an hour's worth of seconds to the current time.
-    gpsur.responseHeaderOverrides = override;
-    NSURL *url = [s3 getPreSignedURL:gpsur];
-    NSLog(@"urlpath = %@", url.path);
-
-    [[UIApplication sharedApplication] openURL:url];
-//
-//    
-    
-}
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -250,7 +201,6 @@ S3Bucket *compressedBucket;
     s3ImageCell* newCell = [collectionView dequeueReusableCellWithReuseIdentifier:MyCellID
                                                                            forIndexPath:indexPath];
 
-//    newCell.imageView.image = nil;
     newCell.imageView.image = compressedThumbnail;
     return newCell;
 }

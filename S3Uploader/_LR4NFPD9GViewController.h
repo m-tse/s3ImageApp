@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface _LR4NFPD9GViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface _LR4NFPD9GViewController : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 - (IBAction)pickAnImage:(id)sender;
-@property (strong, nonatomic) IBOutlet UITableView *tableViewThing;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 

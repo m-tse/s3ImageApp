@@ -25,34 +25,22 @@
                                     <action selector="pickAnImage:" destination="2" eventType="touchUpInside" id="8G8-ME-i5N"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-Vu-adq">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0B1-cx-tOr">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="202" id="04O-oD-mVF"/>
-                                </constraints>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="2" id="6GO-w1-pIj"/>
-                                    <outlet property="delegate" destination="2" id="392-g2-lQE"/>
-                                </connections>
-                            </tableView>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0B1-cx-tOr">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="227" id="83c-Eu-R7Z"/>
-                                    <constraint firstAttribute="width" constant="222" id="wqZ-lT-gn1"/>
+                                    <constraint firstAttribute="height" constant="437" id="f7K-aw-dxb"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cqy-kK-Cvl">
-                                    <size key="itemSize" width="103" height="104"/>
+                                    <size key="itemSize" width="129" height="130"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="simpleCellID" id="eoR-fy-Lc1" customClass="s3ImageCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="103" height="104"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="103" height="104"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="129" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrO-Re-msn" customClass="UIImageView">
@@ -62,10 +50,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="LrO-Re-msn" firstAttribute="leading" secondItem="eoR-fy-Lc1" secondAttribute="leading" type="default" id="jRV-Yl-fq5"/>
-                                            <constraint firstItem="LrO-Re-msn" firstAttribute="top" secondItem="eoR-fy-Lc1" secondAttribute="top" type="default" id="n2C-G6-vKJ"/>
-                                            <constraint firstItem="LrO-Re-msn" firstAttribute="bottom" secondItem="eoR-fy-Lc1" secondAttribute="bottom" type="default" id="sFY-Yx-YBQ"/>
-                                            <constraint firstItem="LrO-Re-msn" firstAttribute="trailing" secondItem="eoR-fy-Lc1" secondAttribute="trailing" type="default" id="vrt-oo-8ur"/>
+                                            <constraint firstItem="LrO-Re-msn" firstAttribute="bottom" secondItem="eoR-fy-Lc1" secondAttribute="bottom" type="default" id="8KP-x1-XF7"/>
+                                            <constraint firstItem="LrO-Re-msn" firstAttribute="top" secondItem="eoR-fy-Lc1" secondAttribute="top" type="default" id="8oI-ux-yEb"/>
+                                            <constraint firstItem="LrO-Re-msn" firstAttribute="leading" secondItem="eoR-fy-Lc1" secondAttribute="leading" type="default" id="EUW-DD-MZY"/>
+                                            <constraint firstItem="LrO-Re-msn" firstAttribute="trailing" secondItem="eoR-fy-Lc1" secondAttribute="trailing" type="default" id="vTg-VZ-IWA"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="LrO-Re-msn" id="33O-jX-zgh"/>
@@ -81,18 +69,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cYh-Vu-adq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Cap-Xp-b08"/>
-                            <constraint firstItem="cYh-Vu-adq" firstAttribute="top" secondItem="feO-Ja-tib" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DFB-4m-7cY"/>
-                            <constraint firstItem="feO-Ja-tib" firstAttribute="centerX" secondItem="cYh-Vu-adq" secondAttribute="centerX" type="default" id="FTk-DZ-EKN"/>
-                            <constraint firstAttribute="trailing" secondItem="cYh-Vu-adq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Wz1-IH-PgM"/>
-                            <constraint firstItem="0B1-cx-tOr" firstAttribute="top" secondItem="cYh-Vu-adq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dP2-Bb-zZv"/>
+                            <constraint firstItem="feO-Ja-tib" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="25O-gG-8ln"/>
+                            <constraint firstAttribute="trailing" secondItem="0B1-cx-tOr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HzL-HB-oh0"/>
                             <constraint firstItem="feO-Ja-tib" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="dXn-8h-ADU"/>
-                            <constraint firstItem="0B1-cx-tOr" firstAttribute="centerX" secondItem="cYh-Vu-adq" secondAttribute="centerX" type="default" id="eZI-fH-rgu"/>
+                            <constraint firstItem="0B1-cx-tOr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fdB-ZL-WSB"/>
+                            <constraint firstItem="0B1-cx-tOr" firstAttribute="top" secondItem="feO-Ja-tib" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oGb-JR-fW7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="0B1-cx-tOr" id="gcj-Jt-jlB"/>
-                        <outlet property="tableViewThing" destination="cYh-Vu-adq" id="McI-lH-bUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -168,6 +153,45 @@
             <point key="canvasLocation" x="165" y="-43"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="_LR4NFPD9GViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/_LR4NFPD9GViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pickAnImage:"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="photoDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/photoDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneButton:"/>
+                <relationship kind="action" name="saveImageToPhone:"/>
+                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="s3ImageCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/s3ImageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
