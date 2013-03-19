@@ -156,9 +156,6 @@ S3Bucket *compressedBucket;
     S3GetObjectResponse* gore = [s3 getObject:gor];
     gore.contentType=@"image/jpeg";
     
-    UIImage *compressedThumbnail = [[UIImage alloc] initWithData:gore.body];
-    
-    
     [self performSegueWithIdentifier:@"ShowPhoto"
                               sender:imageName];
     [self.collectionView
